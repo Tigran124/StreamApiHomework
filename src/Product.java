@@ -1,5 +1,5 @@
 public class Product {
-    int price;
+    Integer price;
     String name;
     Category category;
 

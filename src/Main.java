@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -42,5 +39,16 @@ public class Main {
                 .sorted(Comparator.comparingInt(Product::getPrice))
                 .collect(Collectors.toList());
         System.out.println(babyList);
+        long count;
+        int max;
+        int min;
+        int sum;
+        long average;
+        count = bookList.stream().count();
+        max = bookList.stream().mapToInt(x -> x.price).max().orElse(0);
+        min = bookList.stream().mapToInt(x -> x.price).min().orElse(0);
+        sum = bookList.stream().mapToInt(x -> x.price).sum();
+        average = (long) bookList.stream().mapToInt(x -> x.price).average().orElse(0);
+        System.out.println(count+","+max+","+min+","+sum+","+average);
     }
 }
