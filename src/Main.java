@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,6 +38,9 @@ public class Main {
         List<Product> babyList = new LinkedList<>();
         productList.stream().filter(x -> x.category == Category.Baby)
                 .forEach(babyList::add);
+        babyList = babyList.stream()
+                .sorted(Comparator.comparingInt(Product::getPrice))
+                .collect(Collectors.toList());
         System.out.println(babyList);
     }
 }
